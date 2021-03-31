@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from 'axios';
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
+import { connect } from "react-redux";
+import {setUsername,setDinerID} from '../../../Actions/DinerActions';
 
-const DinerLogin = () => {
+const DinerLogin = (props) => {
+  const { push } = useHistory();
   const initialFormValues = {
     diner_username: "",
     diner_password: "",
@@ -21,9 +24,11 @@ const DinerLogin = () => {
     axios
       .post("http://localhost:59283/diner/login", value)
       .then((res) => {
-        console.log(res)
         localStorage.setItem("token", res.data.token);
-        setValue(initialFormValues)
+        setValue(initialFormValues);
+        push("/diner/foodtrucks");
+        props.setUsername(res.data.diner_username)
+        props.setDinerID(res.data.diner_id)
       })
       .catch((err) => {
         console.log("Axios diner login error", err);
@@ -60,4 +65,11 @@ const DinerLogin = () => {
     </div>
   );
 };
-export default DinerLogin;
+const mapStateToProps = (state) => {
+  return {
+    diner_username: state.diner.diner_username,
+    diner_id: state.diner.diner_id,
+  };
+};
+
+export default connect(mapStateToProps, {setUsername,setDinerID})(DinerLogin);
