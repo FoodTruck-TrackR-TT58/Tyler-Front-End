@@ -7,6 +7,8 @@ import DinerRegister from "./Components/Diner/Register/DinerRegister";
 import OperatorLogin from "./Components/Operator/Login/OperatorLogin";
 import OperatorRegister from "./Components/Operator/Register/OperatorRegister";
 import FoodTruckDisplay from "./Components/FoodTruck/Diner/FoodTruckDisplay";
+import MyFoodTrucks from "./Components/FoodTruck/Operator/MyFoodTrucks";
+import AddTruck from './Components/FoodTruck/Operator/AddTruck';
 import Logout from "./Util/Logout";
 
 function App() {
@@ -17,6 +19,12 @@ function App() {
       <Switch>
         <Route path="/logout">
           <Logout />
+        </Route>
+        <Route path='/operator/addtruck'>
+          <AddTruck/>
+        </Route>
+        <Route path="/operator/myfoodtrucks">
+          <MyFoodTrucks />
         </Route>
         <Route path="/diner/foodtrucks">
           <FoodTruckDisplay />

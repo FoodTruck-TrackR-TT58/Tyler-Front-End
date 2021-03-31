@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import { connect } from "react-redux";
+import { setUsername, setOperatorID } from "../../../Actions/OperatorActions";
 
-const OperatorLogin = () => {
+const OperatorLogin = (props) => {
+  const { push } = useHistory();
   const initialFormValues = {
     operator_username: "",
     operator_password: "",
@@ -21,7 +24,11 @@ const OperatorLogin = () => {
     axios
       .post("http://localhost:59283/operator/login", value)
       .then((res) => {
-        console.log(res.data);
+        localStorage.setItem("token", res.data.token);
+        setValue(initialFormValues);
+        props.setUsername(res.data.operator_username);
+        props.setOperatorID(res.data.operator_id);
+        push('/operator/myfoodtrucks')
       })
       .catch((err) => {
         console.log("Axios operator login error", err);
@@ -58,4 +65,13 @@ const OperatorLogin = () => {
     </div>
   );
 };
-export default OperatorLogin;
+const mapStateToProps = (state) => {
+  return {
+    operator_username: state.operator.operator_username,
+    operator_id: state.operator.operator_id,
+  };
+};
+
+export default connect(mapStateToProps, { setUsername, setOperatorID })(
+  OperatorLogin
+);
