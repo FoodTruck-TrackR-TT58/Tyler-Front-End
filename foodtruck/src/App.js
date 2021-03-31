@@ -9,6 +9,8 @@ import OperatorRegister from "./Components/Operator/Register/OperatorRegister";
 import FoodTruckDisplay from "./Components/FoodTruck/Diner/FoodTruckDisplay";
 import MyFoodTrucks from "./Components/FoodTruck/Operator/MyFoodTrucks";
 import AddTruck from './Components/FoodTruck/Operator/AddTruck';
+import ClickedTruck from './Components/FoodTruck/Operator/ClickedTruck';
+import EditTruck from './Components/FoodTruck/Operator/EditTruck';
 import Logout from "./Util/Logout";
 
 function App() {
@@ -26,6 +28,12 @@ function App() {
         <Route path="/operator/myfoodtrucks">
           <MyFoodTrucks />
         </Route>
+        <Route path='/operator/editruck:id'>
+        <EditTruck/>
+      </Route>
+        <Route path='/operator/truck:id'>
+            <ClickedTruck/>
+          </Route>
         <Route path="/diner/foodtrucks">
           <FoodTruckDisplay />
         </Route>
@@ -41,7 +49,7 @@ function App() {
         <Route path="/diner/login">
           <DinerLogin />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
       </Switch>

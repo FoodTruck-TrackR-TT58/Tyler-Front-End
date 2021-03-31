@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const MyFoodTrucks = (props) => {
   const [trucks, setTrucks] = useState([]);
   const [error, setError] = useState(false);
+  const { push } = useHistory();
+
   useEffect(() => {
     axios
       .get(`http://localhost:59283/api/truck/operator/${props.operator_id}`)
@@ -34,7 +36,12 @@ const MyFoodTrucks = (props) => {
       <h2>My Trucks </h2>
       {trucks.map((item, idx) => {
         return (
-          <div key={idx}>
+          <div
+            key={idx}
+            onClick={() => {
+              push(`/operator/truck:${item.truck_id}`);
+            }}
+          >
             <h3>{item.truck_name}</h3>
             <p>truck cuisine type: {item.truck_cuisine_type}</p>
             {item.truck_img.length === 0 ? (
