@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getAllTrucks } from "../../../Actions/TruckActions";
+import { useHistory, Link } from "react-router-dom";
 
 const FoodTruckDisplay = (props) => {
+  const {push} = useHistory()
   useEffect(() => {
     props.getAllTrucks();
   }, []);
@@ -10,11 +12,16 @@ const FoodTruckDisplay = (props) => {
     <div>
       <div>
         <h2>Welcome {props.diner_username}</h2>
+        <button onClick={()=>{
+          push(`/diner/location:${props.diner_id}`)
+        }}>My Location</button>
         <p>Here are a list of Food Trucks in your area!</p>
       </div>
       {props.trucks.map((item, idx) => {
         return (
-          <div key={idx}>
+          <div key={idx} onClick={() => {
+            push(`/diner/foodtruck:${item.truck_id}`);
+          }}>
             <h3>{item.truck_name}</h3>
             <p>truck cuisine type: {item.truck_cuisine_type}</p>
             {item.truck_img.length === 0 ? (

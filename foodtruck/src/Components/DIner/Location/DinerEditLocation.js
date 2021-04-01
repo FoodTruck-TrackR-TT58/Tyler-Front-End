@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory, useParams } from "react-router-dom";
-const AddTruckLocation = () => {
-  const history = useHistory()
-  const { id } = useParams();
-  const newID = id.replace(/:/g, "");
+import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
+const DinerEditLocation = (props) => {
+  let history = useHistory();
   const initialFormValues = {
-    truck_location_street: "",
-    truck_location_city: "",
-    truck_location_state: "",
-    truck_location_zip: "",
-    truck_id: newID,
+    diner_street: "",
+    diner_city: "",
+    diner_state: "",
+    diner_zip: "",
+    diner_id: props.diner_id,
   };
 
   const [value, setValue] = useState(initialFormValues);
@@ -25,25 +24,26 @@ const AddTruckLocation = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:59283/api/truck/location", value)
+      .put(`http://localhost:59283/api/dine/${props.diner_id}/location`, value)
       .then((res) => {
-        history.goBack()
+        history.goBack();
       })
       .catch((err) => {
         console.log("Axios Add truck location error", err);
       });
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
-          <h3>Add Truck Location</h3>
+        <h3>Edit Location</h3>
         <label>
           {" "}
           Street
           <input
             type="text"
-            name="truck_location_street"
-            value={value.truck_location_street}
+            name="diner_street"
+            value={value.diner_street}
             onChange={handleChange}
           />
         </label>
@@ -53,8 +53,8 @@ const AddTruckLocation = () => {
           City
           <input
             type="text"
-            name="truck_location_city"
-            value={value.truck_location_city}
+            name="diner_city"
+            value={value.diner_city}
             onChange={handleChange}
           />
         </label>
@@ -64,8 +64,8 @@ const AddTruckLocation = () => {
           State
           <input
             type="text"
-            name="truck_location_state"
-            value={value.truck_location_state}
+            name="diner_state"
+            value={value.diner_state}
             onChange={handleChange}
           />
         </label>
@@ -75,16 +75,22 @@ const AddTruckLocation = () => {
           Zip
           <input
             type="text"
-            name="truck_location_zip"
-            value={value.truck_location_zip}
+            name="diner_zip"
+            value={value.diner_zip}
             onChange={handleChange}
           />
         </label>
 
-       
-        <button>Add Location</button>
+      
+        <button>Edit Location</button>
       </form>
     </div>
   );
 };
-export default AddTruckLocation;
+const mapStateToProps = (state) => {
+  return {
+    diner_id: state.diner.diner_id,
+  };
+};
+
+export default connect(mapStateToProps)(DinerEditLocation);

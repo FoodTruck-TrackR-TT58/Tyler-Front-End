@@ -7,13 +7,17 @@ import DinerRegister from "./Components/Diner/Register/DinerRegister";
 import OperatorLogin from "./Components/Operator/Login/OperatorLogin";
 import OperatorRegister from "./Components/Operator/Register/OperatorRegister";
 import FoodTruckDisplay from "./Components/FoodTruck/Diner/FoodTruckDisplay";
+import FoodTruckClicked from './Components/FoodTruck/Diner/FoodTruckClicked';
 import MyFoodTrucks from "./Components/FoodTruck/Operator/MyFoodTrucks";
-import AddTruck from './Components/FoodTruck/Operator/AddTruck';
-import ClickedTruck from './Components/FoodTruck/Operator/ClickedTruck';
-import EditTruck from './Components/FoodTruck/Operator/EditTruck';
-import FoodTruckLocations from './Components/FoodTruck/Operator/FoodTruckLocations';
-import AddTruckLocation from './Components/FoodTruck/Operator/AddTruckLocation';
-import EditLocation from './Components/FoodTruck/Operator/EditLocation';
+import AddTruck from "./Components/FoodTruck/Operator/AddTruck";
+import ClickedTruck from "./Components/FoodTruck/Operator/ClickedTruck";
+import EditTruck from "./Components/FoodTruck/Operator/EditTruck";
+import FoodTruckLocations from "./Components/FoodTruck/Operator/FoodTruckLocations";
+import AddTruckLocation from "./Components/FoodTruck/Operator/AddTruckLocation";
+import EditLocation from "./Components/FoodTruck/Operator/EditLocation";
+import DinerLocation from './Components/Diner/Location/DinerLocation';
+import DinerAddLocation from './Components/Diner/Location/DinerAddLocation';
+import DinerEditLocation from './Components/Diner/Location/DinerEditLocation';
 import Logout from "./Util/Logout";
 
 function App() {
@@ -25,27 +29,39 @@ function App() {
         <Route path="/logout">
           <Logout />
         </Route>
-        <Route path='/operator/editlocation:id'>
-          <EditLocation/>
+        <Route path="/operator/editlocation:id">
+          <EditLocation />
         </Route>
-        <Route path='/operator/addtrucklocation:id'>
-          <AddTruckLocation/>
+        <Route path="/operator/addtrucklocation:id">
+          <AddTruckLocation />
         </Route>
-        <Route path='/operator/addtruck'>
-          <AddTruck/>
+        <Route path="/operator/addtruck">
+          <AddTruck />
         </Route>
         <Route path="/operator/myfoodtrucks">
           <MyFoodTrucks />
         </Route>
-        <Route path='/operator/editruck:id'>
-        <EditTruck/>
-      </Route>
-        <Route path='/operator/truck:id'>
-            <ClickedTruck/>
-            <FoodTruckLocations/>
-          </Route>
+        <Route path="/operator/editruck:id">
+          <EditTruck />
+        </Route>
+        <Route path="/operator/truck:id">
+          <ClickedTruck />
+          <FoodTruckLocations />
+        </Route>
+        <Route path='/diner/location/edit:id'>
+          <DinerEditLocation/>
+        </Route>
+        <Route path='/diner/location/add:id'>
+          <DinerAddLocation/>
+        </Route>
+        <Route path='/diner/location:id'>
+          <DinerLocation/>
+        </Route>
         <Route path="/diner/foodtrucks">
           <FoodTruckDisplay />
+        </Route>
+        <Route path='/diner/foodtruck:id'>
+          <FoodTruckClicked/>
         </Route>
         <Route path="/operator/register">
           <OperatorRegister />
