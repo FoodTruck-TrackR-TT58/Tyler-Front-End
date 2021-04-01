@@ -43,7 +43,9 @@ const MyFoodTrucks = (props) => {
             }}
           >
             <h3>{item.truck_name}</h3>
+            <p> truck_id: {item.truck_id}</p>
             <p>truck cuisine type: {item.truck_cuisine_type}</p>
+
             {item.truck_img.length === 0 ? (
               <div></div>
             ) : (
