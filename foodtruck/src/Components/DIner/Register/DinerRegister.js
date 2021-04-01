@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 const DinerRegister = () => {
+  const {push} = useHistory()
   const initialFormValues = {
     diner_username: "",
     diner_email: "",
@@ -21,7 +23,7 @@ const DinerRegister = () => {
     axios
       .post("http://localhost:59283/diner/register", value)
       .then((res) => {
-        console.log(res);
+       push('/diner/login')
       })
       .catch((err) => {
         console.log("Axios Diner Register error", err);

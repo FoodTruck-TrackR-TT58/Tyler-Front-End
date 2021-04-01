@@ -22,11 +22,10 @@ const FoodTruckLocations = () => {
     push(`/operator/addtrucklocation:${newID}`);
   };
 
-  console.log(location);
   return (
     <div>
       <h2>Truck Location</h2>
-      {location.length >= 0 ? (
+      {location.length > 0 ? (
         <div>
           <div></div>
         </div>
@@ -42,7 +41,7 @@ const FoodTruckLocations = () => {
             <div
               key={idx}
               onClick={() => {
-                push(`/operator/editlocation:${item.truck_location_id}`);
+                push(`/operator/editlocation:${item.truck_id}`);
               }}
             >
               <p>Street: {item.truck_location_street}</p>

@@ -12,7 +12,7 @@ const EditLocation = () => {
     truck_location_city: "",
     truck_location_state: "",
     truck_location_zip: "",
-    truck_id: "",
+    truck_id: newID,
   };
 
   useEffect(() => {
@@ -44,13 +44,13 @@ const EditLocation = () => {
         value
       )
       .then((res) => {
-        push('/operator/myfoodtrucks')
+        push(`/operator/truck:${newID}`)
       })
       .catch((err) => {
         console.log("Axios Edit truck location error", err);
       });
   };
-  console.log(value);
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -98,20 +98,7 @@ const EditLocation = () => {
             onChange={handleChange}
           />
         </label>
-        {/* <label>
-          <input type="text" name="truck_id" value={IDValue} readOnly={true} />
-        </label> */}
-
-        <label>
-          {" "}
-          Truck ID
-          <input
-            type="text"
-            name="truck_id"
-            value={value.truck_id}
-            onChange={handleChange}
-          />
-        </label>
+     
 
         <button>Edit Location</button>
       </form>

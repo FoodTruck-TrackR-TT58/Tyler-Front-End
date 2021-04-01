@@ -38,7 +38,7 @@ const EditTruck = (props) => {
     axios
       .put(`http://localhost:59283/api/truck/${newID}`, value)
       .then((res) => {
-        push("/operator/myfoodtrucks");
+        push(`/operator/truck:${newID}`);
       })
       .catch((err) => {
         console.log("Axios Add truck error", err);
@@ -46,13 +46,13 @@ const EditTruck = (props) => {
   };
   return (
     <div>
-        {truck.map((item,idx)=>{
-            return (
-                <div key={idx}>
+      {truck.map((item, idx) => {
+        return (
+          <div key={idx}>
             <h1>{item.truck_name}</h1>
-            </div>
-            )
-        })}
+          </div>
+        );
+      })}
       <form onSubmit={handleSubmit}>
         <h2>Edit truck</h2>
         <label>

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const OperatorRegister = () => {
+  const {push} = useHistory()
   const initialFormValues = {
     operator_username: "",
     operator_email: "",
@@ -21,7 +23,7 @@ const OperatorRegister = () => {
     axios
       .post("http://localhost:59283/operator/register", value)
       .then((res) => {
-        console.log(res);
+        push('/operator/login')
       })
       .catch((err) => {
         console.log("Axios Operator Register error", err);
