@@ -11,6 +11,9 @@ import MyFoodTrucks from "./Components/FoodTruck/Operator/MyFoodTrucks";
 import AddTruck from './Components/FoodTruck/Operator/AddTruck';
 import ClickedTruck from './Components/FoodTruck/Operator/ClickedTruck';
 import EditTruck from './Components/FoodTruck/Operator/EditTruck';
+import FoodTruckLocations from './Components/FoodTruck/Operator/FoodTruckLocations';
+import AddTruckLocation from './Components/FoodTruck/Operator/AddTruckLocation';
+import EditLocation from './Components/FoodTruck/Operator/EditLocation';
 import Logout from "./Util/Logout";
 
 function App() {
@@ -21,6 +24,12 @@ function App() {
       <Switch>
         <Route path="/logout">
           <Logout />
+        </Route>
+        <Route path='/operator/editlocation:id'>
+          <EditLocation/>
+        </Route>
+        <Route path='/operator/addtrucklocation:id'>
+          <AddTruckLocation/>
         </Route>
         <Route path='/operator/addtruck'>
           <AddTruck/>
@@ -33,6 +42,7 @@ function App() {
       </Route>
         <Route path='/operator/truck:id'>
             <ClickedTruck/>
+            <FoodTruckLocations/>
           </Route>
         <Route path="/diner/foodtrucks">
           <FoodTruckDisplay />
