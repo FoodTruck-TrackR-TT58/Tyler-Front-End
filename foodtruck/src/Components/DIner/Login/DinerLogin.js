@@ -22,7 +22,7 @@ const DinerLogin = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:59283/diner/login", value)
+      .post("https://foodtruckbackend.herokuapp.com/diner/login", value)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         setValue(initialFormValues);

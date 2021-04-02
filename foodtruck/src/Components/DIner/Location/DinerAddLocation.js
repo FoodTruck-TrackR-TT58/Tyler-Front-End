@@ -24,7 +24,7 @@ const DinerAddLocation = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:59283/api/dine/location`, value)
+      .post(`https://foodtruckbackend.herokuapp.com/api/dine/location`, value)
       .then((res) => {
         history.goBack();
       })

@@ -8,7 +8,9 @@ const DinerLocation = (props) => {
   const { push } = useHistory();
   useEffect(() => {
     axios
-      .get(`http://localhost:59283/api/dine/${props.diner_id}/location`)
+      .get(
+        `https://foodtruckbackend.herokuapp.com/api/dine/${props.diner_id}/location`
+      )
       .then((res) => {
         setLocation(res.data);
       })

@@ -10,7 +10,7 @@ const FoodTruckMenu = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:59283/api/menu/${newID}`)
+      .get(`https://foodtruckbackend.herokuapp.com/api/menu/${newID}`)
       .then((res) => {
         setMenu(res.data);
       })

@@ -21,7 +21,7 @@ const DinerRegister = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:59283/diner/register", value)
+      .post("https://foodtruckbackend.herokuapp.com/diner/register", value)
       .then((res) => {
         push("/diner/login");
       })

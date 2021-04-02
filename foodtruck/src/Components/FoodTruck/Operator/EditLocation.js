@@ -17,7 +17,7 @@ const EditLocation = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:59283/api/truck/location/${newID}`)
+      .get(`https://foodtruckbackend.herokuapp.com/api/truck/location/${newID}`)
       .then((res) => {
         setLocation(res.data);
       })
@@ -39,7 +39,7 @@ const EditLocation = () => {
     e.preventDefault();
     axios
       .put(
-        `http://localhost:59283/api/truck/operator/location/edit/${newID}`,
+        `https://foodtruckbackend.herokuapp.com/api/truck/operator/location/edit/${newID}`,
         value
       )
       .then((res) => {

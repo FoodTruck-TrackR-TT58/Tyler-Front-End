@@ -8,7 +8,9 @@ const FoodTruckLocation = () => {
   const [location, setLocation] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:59283/api/truck/operator/location/${newID}`)
+      .get(
+        `https://foodtruckbackend.herokuapp.com/api/truck/operator/location/${newID}`
+      )
       .then((res) => {
         setLocation(res.data);
       })

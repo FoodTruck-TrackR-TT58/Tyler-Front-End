@@ -18,7 +18,7 @@ const EditTruck = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:59283/api/truck/${newID}`)
+      .get(`https://foodtruckbackend.herokuapp.com/api/truck/${newID}`)
       .then((res) => {
         setTruck(res.data);
       })
@@ -36,7 +36,7 @@ const EditTruck = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:59283/api/truck/${newID}`, value)
+      .put(`https://foodtruckbackend.herokuapp.com/api/truck/${newID}`, value)
       .then((res) => {
         push(`/operator/truck:${newID}`);
       })
