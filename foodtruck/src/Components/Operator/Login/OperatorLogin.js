@@ -28,7 +28,7 @@ const OperatorLogin = (props) => {
         setValue(initialFormValues);
         props.setUsername(res.data.operator_username);
         props.setOperatorID(res.data.operator_id);
-        push('/operator/myfoodtrucks')
+        push("/operator/myfoodtrucks");
       })
       .catch((err) => {
         console.log("Axios operator login error", err);

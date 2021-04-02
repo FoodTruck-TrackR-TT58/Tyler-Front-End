@@ -24,11 +24,10 @@ const EditLocation = () => {
       .catch((err) => {
         console.log("Get location error", err);
       });
-  }, []);
-  const [location, setLocation] = useState([]);
+  }, [newID]);
+  const [, setLocation] = useState([]);
 
   const [value, setValue] = useState(initialFormValues);
-
 
   const handleChange = (e) => {
     setValue({
@@ -44,7 +43,7 @@ const EditLocation = () => {
         value
       )
       .then((res) => {
-        push(`/operator/truck:${newID}`)
+        push(`/operator/truck:${newID}`);
       })
       .catch((err) => {
         console.log("Axios Edit truck location error", err);
@@ -98,7 +97,6 @@ const EditLocation = () => {
             onChange={handleChange}
           />
         </label>
-     
 
         <button>Edit Location</button>
       </form>

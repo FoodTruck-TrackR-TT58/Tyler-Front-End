@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 const AddMenuItem = () => {
   const { id } = useParams();
@@ -27,7 +27,7 @@ const AddMenuItem = () => {
     axios
       .post("http://localhost:59283/api/item", value)
       .then((res) => {
-        push(`/operator/menu:${newID}`)
+        push(`/operator/menu:${newID}`);
       })
       .catch((err) => {
         console.log("Axios Add truck location error", err);
@@ -37,7 +37,7 @@ const AddMenuItem = () => {
     <div>
       <h2>Add New Item</h2>
       <form onSubmit={handleSubmit}>
-      <label>
+        <label>
           {" "}
           Name
           <input

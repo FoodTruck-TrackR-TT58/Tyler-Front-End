@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import axios from "axios";
 
-const TruckMenu = () => {
-  const [menu, setMenu] = useState([]);
+const FoodTruckMenu = () => {
   const { id } = useParams();
   const newID = id.replace(/:/g, "");
   const { push } = useHistory();
+  const [menu, setMenu] = useState([]);
+
   useEffect(() => {
     axios
       .get(`http://localhost:59283/api/menu/${newID}`)
@@ -14,27 +15,19 @@ const TruckMenu = () => {
         setMenu(res.data);
       })
       .catch((err) => {
-        console.log("Axios Truck Mnu error", err);
+        console.log("Axios food truck menu error", err);
       });
   }, [newID]);
-
   return (
     <div>
-      <h2>Truck Menu's</h2>
-      <button
-        onClick={() => {
-          push(`/operator/menu/add:${newID}`);
-        }}
-      >
-        Add New Menu
-      </button>
+      <h2>Truck Menu</h2>
       {menu.length > 0 ? (
         menu.map((item, idx) => {
           return (
             <div
               key={idx}
               onClick={() => {
-                push(`/operator/menu:${item.menu_id}`);
+                push(`/diner/menu/items:${item.menu_id}`);
               }}
             >
               <h3>{item.menu_name}</h3>
@@ -48,4 +41,4 @@ const TruckMenu = () => {
     </div>
   );
 };
-export default TruckMenu;
+export default FoodTruckMenu;

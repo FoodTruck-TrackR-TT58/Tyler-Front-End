@@ -23,6 +23,8 @@ import AddTruckMenu from "./Components/FoodTruck/Operator/AddTruckMenu";
 import MenuClicked from "./Components/FoodTruck/Operator/MenuItems";
 import AddMenuItem from "./Components/FoodTruck/Operator/AddMenuItem";
 import FoodTruckLocation from "./Components/FoodTruck/Diner/FoodTruckLocation";
+import FoodTruckMenu from "./Components/FoodTruck/Diner/FoodTruckMenu";
+import FoodMenuItems from "./Components/FoodTruck/Diner/FoodMenuItems";
 import Logout from "./Util/Logout";
 
 function App() {
@@ -72,12 +74,16 @@ function App() {
         <Route path="/diner/location:id">
           <DinerLocation />
         </Route>
+        <Route path="/diner/menu/items:id">
+          <FoodMenuItems />
+        </Route>
         <Route path="/diner/foodtrucks">
           <FoodTruckDisplay />
         </Route>
         <Route path="/diner/foodtruck:id">
           <FoodTruckClicked />
           <FoodTruckLocation />
+          <FoodTruckMenu />
         </Route>
         <Route path="/operator/register">
           <OperatorRegister />

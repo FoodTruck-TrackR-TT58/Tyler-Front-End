@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useParams, useHistory } from "react-router-dom";
 
-const MenuItems = () => {
+const FoodMenuItems = () => {
   const { id } = useParams();
   const newID = id.replace(/:/g, "");
-  const { push } = useHistory();
   const [items, setItems] = useState([]);
+
   useEffect(() => {
     axios
       .get(`http://localhost:59283/api/item/${newID}`)
@@ -17,17 +17,9 @@ const MenuItems = () => {
         console.log("Axios Menu Items error", err);
       });
   }, [newID]);
-
   return (
     <div>
-      <h2>Menu items</h2>
-      <button
-        onClick={() => {
-          push(`/operator/menu/item/add:${newID}`);
-        }}
-      >
-        Add New Item
-      </button>
+      <h2>Food Menu Items</h2>
       {items.length > 0 ? (
         items.map((item, idx) => {
           return (
@@ -51,4 +43,4 @@ const MenuItems = () => {
     </div>
   );
 };
-export default MenuItems;
+export default FoodMenuItems;

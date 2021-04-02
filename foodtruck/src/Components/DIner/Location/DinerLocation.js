@@ -15,7 +15,7 @@ const DinerLocation = (props) => {
       .catch((err) => {
         console.log("Axios Diner location error", err);
       });
-  }, []);
+  }, [props.diner_id]);
   const addNewLocation = () => {
     push(`/diner/location/add:${props.diner_id}`);
   };

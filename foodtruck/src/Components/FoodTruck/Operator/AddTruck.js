@@ -4,7 +4,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 const AddTruck = (props) => {
-    const {push} = useHistory()
+  const { push } = useHistory();
   const initialFormValues = {
     truck_name: "",
     truck_img: "",
@@ -24,7 +24,7 @@ const AddTruck = (props) => {
     axios
       .post("http://localhost:59283/api/truck", value)
       .then((res) => {
-        push('/operator/myfoodtrucks')
+        push("/operator/myfoodtrucks");
       })
       .catch((err) => {
         console.log("Axios Add truck error", err);

@@ -15,7 +15,7 @@ const FoodTruckLocation = () => {
       .catch((err) => {
         console.log("Axios Operator truck location error", err);
       });
-  }, []);
+  }, [newID]);
   return (
     <div>
       <h3>Truck Location</h3>
