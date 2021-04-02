@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getAllTrucks } from "../../../Actions/TruckActions";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const FoodTruckDisplay = (props) => {
   const {push} = useHistory()
