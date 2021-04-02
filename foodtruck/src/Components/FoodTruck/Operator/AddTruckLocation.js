@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 const AddTruckLocation = () => {
-  const history = useHistory()
+  const history = useHistory();
   const { id } = useParams();
   const newID = id.replace(/:/g, "");
 
@@ -27,7 +27,7 @@ const AddTruckLocation = () => {
     axios
       .post("http://localhost:59283/api/truck/location", value)
       .then((res) => {
-        history.goBack()
+        history.goBack();
       })
       .catch((err) => {
         console.log("Axios Add truck location error", err);
@@ -36,7 +36,7 @@ const AddTruckLocation = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-          <h3>Add Truck Location</h3>
+        <h3>Add Truck Location</h3>
         <label>
           {" "}
           Street
@@ -81,7 +81,6 @@ const AddTruckLocation = () => {
           />
         </label>
 
-       
         <button>Add Location</button>
       </form>
     </div>

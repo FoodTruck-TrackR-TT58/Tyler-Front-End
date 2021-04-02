@@ -19,7 +19,7 @@ const MyFoodTrucks = (props) => {
         setError(true);
         console.log("Axios My truck error");
       });
-  }, []);
+  }, [props.operator_id]);
   if (error) {
     return (
       <div>

@@ -81,7 +81,6 @@ const DinerEditLocation = (props) => {
           />
         </label>
 
-      
         <button>Edit Location</button>
       </form>
     </div>

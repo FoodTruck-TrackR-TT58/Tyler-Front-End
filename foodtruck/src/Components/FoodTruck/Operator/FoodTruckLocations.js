@@ -16,7 +16,7 @@ const FoodTruckLocations = () => {
       .catch((err) => {
         console.log("Axios Operator truck location error", err);
       });
-  }, []);
+  }, [newID]);
 
   const addLocation = () => {
     push(`/operator/addtrucklocation:${newID}`);
