@@ -38,6 +38,7 @@ const TruckMenu = () => {
               }}
             >
               <h3>{item.menu_name}</h3>
+              <h6>Click to view menu</h6>
             </div>
           );
         })

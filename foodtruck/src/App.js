@@ -18,10 +18,11 @@ import EditLocation from "./Components/FoodTruck/Operator/EditLocation";
 import DinerLocation from "./Components/Diner/Location/DinerLocation";
 import DinerAddLocation from "./Components/Diner/Location/DinerAddLocation";
 import DinerEditLocation from "./Components/Diner/Location/DinerEditLocation";
-import TruckMenu from './Components/FoodTruck/Operator/TruckMenu';
-import AddTruckMenu from './Components/FoodTruck/Operator/AddTruckMenu';
-import MenuClicked from './Components/FoodTruck/Operator/MenuItems';
-import AddMenuItem from './Components/FoodTruck/Operator/AddMenuItem';
+import TruckMenu from "./Components/FoodTruck/Operator/TruckMenu";
+import AddTruckMenu from "./Components/FoodTruck/Operator/AddTruckMenu";
+import MenuClicked from "./Components/FoodTruck/Operator/MenuItems";
+import AddMenuItem from "./Components/FoodTruck/Operator/AddMenuItem";
+import FoodTruckLocation from "./Components/FoodTruck/Diner/FoodTruckLocation";
 import Logout from "./Util/Logout";
 
 function App() {
@@ -33,11 +34,11 @@ function App() {
         <Route path="/logout">
           <Logout />
         </Route>
-        <Route path='/operator/menu/item/add:id'>
-          <AddMenuItem/>
+        <Route path="/operator/menu/item/add:id">
+          <AddMenuItem />
         </Route>
-        <Route path='/operator/menu/add:id'>
-          <AddTruckMenu/>
+        <Route path="/operator/menu/add:id">
+          <AddTruckMenu />
         </Route>
         <Route path="/operator/editlocation:id">
           <EditLocation />
@@ -54,13 +55,13 @@ function App() {
         <Route path="/operator/editruck:id">
           <EditTruck />
         </Route>
-        <Route path='/operator/menu:id'>
-          <MenuClicked/>
+        <Route path="/operator/menu:id">
+          <MenuClicked />
         </Route>
         <Route path="/operator/truck:id">
           <ClickedTruck />
           <FoodTruckLocations />
-          <TruckMenu/>
+          <TruckMenu />
         </Route>
         <Route path="/diner/location/edit:id">
           <DinerEditLocation />
@@ -76,6 +77,7 @@ function App() {
         </Route>
         <Route path="/diner/foodtruck:id">
           <FoodTruckClicked />
+          <FoodTruckLocation />
         </Route>
         <Route path="/operator/register">
           <OperatorRegister />
