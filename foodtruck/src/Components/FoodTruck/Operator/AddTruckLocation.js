@@ -25,7 +25,7 @@ const AddTruckLocation = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:59283/api/truck/location", value)
+      .post("https://foodtruckbackend.herokuapp.com/api/truck/location", value)
       .then((res) => {
         history.goBack();
       })

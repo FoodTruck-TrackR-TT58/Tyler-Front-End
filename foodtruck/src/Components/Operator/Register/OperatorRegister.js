@@ -21,7 +21,7 @@ const OperatorRegister = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:59283/operator/register", value)
+      .post("https://foodtruckbackend.herokuapp.com/operator/register", value)
       .then((res) => {
         push("/operator/login");
       })

@@ -25,7 +25,7 @@ const AddMenuItem = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:59283/api/item", value)
+      .post("https://foodtruckbackend.herokuapp.com/api/item", value)
       .then((res) => {
         push(`/operator/menu:${newID}`);
       })

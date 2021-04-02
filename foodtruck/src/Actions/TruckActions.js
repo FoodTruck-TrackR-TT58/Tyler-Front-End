@@ -7,7 +7,7 @@ export const getAllTrucks = () => {
   return (dispatch) => {
     dispatch({ type: FETCHING_TRUCKS_START });
     axios
-      .get("http://localhost:59283/api/truck")
+      .get("https://foodtruckbackend.herokuapp.com/api/truck")
       .then((res) => {
         dispatch({ type: FETCHING_TRUCKS_SUCCESS, payload: res.data });
       })

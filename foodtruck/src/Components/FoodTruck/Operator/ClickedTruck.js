@@ -9,7 +9,7 @@ const ClickedTruck = () => {
   const [truck, setTruck] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:59283/api/truck/${newID}`)
+      .get(`https://foodtruckbackend.herokuapp.com/api/truck/${newID}`)
       .then((res) => {
         setTruck(res.data);
       })
@@ -24,7 +24,7 @@ const ClickedTruck = () => {
 
   const deleteTruck = () => {
     axios
-      .delete(`http://localhost:59283/api/truck/${newID}`)
+      .delete(`https://foodtruckbackend.herokuapp.com/api/truck/${newID}`)
       .then((res) => {
         push("/operator/myfoodtrucks");
       })

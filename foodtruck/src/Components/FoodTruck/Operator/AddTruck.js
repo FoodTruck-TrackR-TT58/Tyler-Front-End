@@ -22,7 +22,7 @@ const AddTruck = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:59283/api/truck", value)
+      .post("https://foodtruckbackend.herokuapp.com/api/truck", value)
       .then((res) => {
         push("/operator/myfoodtrucks");
       })

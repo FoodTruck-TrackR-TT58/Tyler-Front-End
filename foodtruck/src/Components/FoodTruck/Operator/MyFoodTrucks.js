@@ -10,7 +10,7 @@ const MyFoodTrucks = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:59283/api/truck/operator/${props.operator_id}`)
+      .get(`https://foodtruckbackend.herokuapp.com/api/truck/operator/${props.operator_id}`)
       .then((res) => {
         console.log(res.data);
         setTrucks(res.data);
